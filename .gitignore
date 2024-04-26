@@ -43,3 +43,5 @@
 /node_modules
 
 /.yarn/*
+
+/app/javascript/compiled/*
