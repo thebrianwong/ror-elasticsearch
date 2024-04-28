@@ -45,3 +45,5 @@
 /.yarn/*
 
 /app/javascript/compiled/*
+
+.pnp*
