@@ -1,6 +1,7 @@
 import { useState } from "react";
+import SearchFormParams from "./type";
 
-const SearchForm = () => {
+const SearchForm = ({ performSearch }: SearchFormParams) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
@@ -15,7 +16,14 @@ const SearchForm = () => {
           setSearchValue(e.target.value)
         }
       />
-      <input type="submit" value="Search" />
+      <input
+        type="submit"
+        value="Search"
+        onClick={(e) => {
+          e.preventDefault();
+          performSearch(searchValue);
+        }}
+      />
     </form>
   );
 };
