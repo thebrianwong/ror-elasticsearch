@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SearchFormParams from "./type";
+import SearchFormProps from "./type";
 
-const SearchForm = ({ performSearch }: SearchFormParams) => {
+const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (

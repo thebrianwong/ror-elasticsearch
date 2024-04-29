@@ -1,5 +1,5 @@
-type SearchFormParams = {
+type SearchFormProps = {
   performSearch: (searchParam: string) => void;
 };
 
-export default SearchFormParams;
+export default SearchFormProps;
