@@ -1,11 +1,12 @@
 import { useState } from "react";
 import SearchForm from "../components/SearchForm/SearchForm";
 import SearchResults from "../types/searchResults.type";
+import ProductType from "../types/product.type";
 
 const HomePage = () => {
-  const [searchResults, setSearchResults] = useState<SearchResults | null>(
-    null
-  );
+  const [searchResults, setSearchResults] = useState<ProductType[]>([]);
+  const [currentPage, setCurrentPage] = useState<number | null>(null);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
 
   const getSearchResults = async (searchParam: string) => {
     const rawResults = await fetch(
@@ -15,8 +16,10 @@ const HomePage = () => {
           page: "1", // placeholder
         })
     );
-    const apiResults = await rawResults.json();
-    setSearchResults(apiResults);
+    const apiResults: SearchResults = await rawResults.json();
+    setSearchResults(apiResults.products);
+    setCurrentPage(apiResults.currentPage);
+    setTotalPages(apiResults.numOfPages);
   };
 
   return (
