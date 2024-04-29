@@ -1,9 +1,13 @@
 import { useState } from "react";
 import SearchForm from "../components/SearchForm/SearchForm";
-import ProductType from "../types/product.type";
+import SearchResults from "../types/searchResults.type";
 
 const HomePage = () => {
-  const [searchResults, setSearchResults] = useState<ProductType[]>([]);
+  const [searchResults, setSearchResults] = useState<SearchResults | null>(
+    null
+  );
+
+  const getSearchResults = (searchParam: string) => {};
 
   return (
     <>
