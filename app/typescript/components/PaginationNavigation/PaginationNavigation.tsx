@@ -7,9 +7,10 @@ const PaginationNavigation = ({
   totalPages,
 }: PaginationNavigationProps) => {
   return (
-    <div>
+    <nav className="flex mb-4">
       {currentPage > 1 && (
         <a
+          className="mx-2 text-blue-500 hover:text-blue-800"
           href="/"
           onClick={(e) => {
             e.preventDefault();
@@ -23,10 +24,15 @@ const PaginationNavigation = ({
         .fill(undefined)
         .map((_, index) => {
           if (currentPage === index + 1) {
-            return <span key={index}>{index + 1}</span>;
+            return (
+              <span className="mx-2 font-bold" key={index}>
+                {index + 1}
+              </span>
+            );
           } else {
             return (
               <a
+                className="mx-2 text-blue-500 underline hover:text-blue-800"
                 href="/"
                 key={index}
                 onClick={(e) => {
@@ -41,6 +47,7 @@ const PaginationNavigation = ({
         })}
       {currentPage < totalPages && (
         <a
+          className="mx-2 text-blue-500 hover:text-blue-800"
           href="/"
           onClick={(e) => {
             e.preventDefault();
@@ -50,7 +57,7 @@ const PaginationNavigation = ({
           {">"}
         </a>
       )}
-    </div>
+    </nav>
   );
 };
 
