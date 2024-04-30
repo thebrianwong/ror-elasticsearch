@@ -21,7 +21,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
         value="Search"
         onClick={(e) => {
           e.preventDefault();
-          performSearch(searchValue);
+          performSearch(searchValue, 1);
         }}
       />
     </form>

@@ -1,5 +1,5 @@
 type SearchFormProps = {
-  performSearch: (searchParam: string) => void;
+  performSearch: (searchParam: string, pageNumber: number) => void;
 };
 
 export default SearchFormProps;

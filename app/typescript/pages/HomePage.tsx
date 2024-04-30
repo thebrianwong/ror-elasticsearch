@@ -10,12 +10,12 @@ const HomePage = () => {
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [previousSearch, setPreviousSearch] = useState<string | null>(null);
 
-  const getSearchResults = async (searchParam: string) => {
+  const getSearchResults = async (searchParam: string, pageNumber: number) => {
     const rawResults = await fetch(
       "/api/v1/products/index?" +
         new URLSearchParams({
           search_param: searchParam,
-          page: "1", // placeholder
+          page: String(pageNumber),
         })
     );
     const apiResults: SearchResults = await rawResults.json();
