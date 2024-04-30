@@ -28,8 +28,10 @@ const HomePage = () => {
   };
 
   return (
-    <>
-      <h1>ElasticSearch - Search for Products</h1>
+    <div className="container mx-auto text-center">
+      <h1 className="text-5xl font-extrabold my-4">
+        ElasticSearch - Search for Products
+      </h1>
       <SearchForm performSearch={getSearchResults} />
       {totalPages === 0 && searchedValue && (
         <p>There doesn't seem to be anything related to {searchedValue}...</p>
@@ -48,7 +50,7 @@ const HomePage = () => {
             totalPages={totalPages}
           />
         )}
-    </>
+    </div>
   );
 };
 
