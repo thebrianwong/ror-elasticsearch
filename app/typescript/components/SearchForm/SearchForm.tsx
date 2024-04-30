@@ -5,9 +5,12 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <form>
-      <label htmlFor="product">Product: </label>
+    <form className="flex flex-col gap-y-1.5 max-w-48 mb-4">
+      <label htmlFor="product" className="text-3xl">
+        Product:{" "}
+      </label>
       <input
+        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
         type="search"
         name="product"
         id="product"
@@ -17,6 +20,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
         }
       />
       <input
+        className="bg-zinc-200 rounded border-zinc-500 border-2 focus:ring"
         type="submit"
         value="Search"
         onClick={(e) => {
