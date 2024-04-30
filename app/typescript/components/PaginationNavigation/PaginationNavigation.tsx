@@ -6,6 +6,9 @@ const PaginationNavigation = ({
   currentPage,
   totalPages,
 }: PaginationNavigationProps) => {
+  const NUM_OF_PAGE_INDICATORS = 5;
+  const NUM_OF_NAV_LINKS_ON_EACH_SIDE = 2;
+
   return (
     <nav className="flex mb-4">
       {currentPage > 1 && (
@@ -32,13 +35,19 @@ const PaginationNavigation = ({
           </a>
         </>
       )}
-      {Array(totalPages)
-        .fill(undefined)
-        .map((_, index) => {
-          if (currentPage === index + 1) {
+      {currentPage - NUM_OF_NAV_LINKS_ON_EACH_SIDE > 1 && <span>...</span>}
+      {[
+        currentPage - 2,
+        currentPage - 1,
+        currentPage,
+        currentPage + 1,
+        currentPage + 2,
+      ].map((pageNum) => {
+        if (pageNum >= 1 && pageNum <= totalPages) {
+          if (currentPage === pageNum) {
             return (
-              <span className="mx-2 font-bold" key={index}>
-                {index + 1}
+              <span className="mx-2 font-bold" key={pageNum}>
+                {pageNum}
               </span>
             );
           } else {
@@ -46,17 +55,21 @@ const PaginationNavigation = ({
               <a
                 className="mx-2 text-blue-500 underline hover:text-blue-800"
                 href="/"
-                key={index}
+                key={pageNum}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigateToPage(searchValue, index + 1);
+                  navigateToPage(searchValue, pageNum);
                 }}
               >
-                {index + 1}
+                {pageNum}
               </a>
             );
           }
-        })}
+        }
+      })}
+      {currentPage + NUM_OF_NAV_LINKS_ON_EACH_SIDE < totalPages && (
+        <span>...</span>
+      )}
       {currentPage < totalPages && (
         <>
           <a
