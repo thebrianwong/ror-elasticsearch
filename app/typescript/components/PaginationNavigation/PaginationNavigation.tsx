@@ -14,7 +14,7 @@ const PaginationNavigation = ({
       {currentPage > 1 && (
         <>
           <a
-            className="mx-2 text-blue-500 hover:text-blue-800"
+            className="mx-1.5 text-blue-500 hover:text-blue-800"
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -24,7 +24,7 @@ const PaginationNavigation = ({
             {"<<"}
           </a>
           <a
-            className="mx-2 text-blue-500 hover:text-blue-800"
+            className="mx-1.5 text-blue-500 hover:text-blue-800"
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -35,7 +35,22 @@ const PaginationNavigation = ({
           </a>
         </>
       )}
-      {currentPage - NUM_OF_NAV_LINKS_ON_EACH_SIDE > 1 && <span>...</span>}
+      {currentPage - NUM_OF_NAV_LINKS_ON_EACH_SIDE > 1 && (
+        <a
+          className="mx-1.5 text-blue-500 hover:text-blue-800"
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            if (currentPage - NUM_OF_PAGE_INDICATORS >= 1) {
+              navigateToPage(searchValue, currentPage - NUM_OF_PAGE_INDICATORS);
+            } else {
+              navigateToPage(searchValue, 1);
+            }
+          }}
+        >
+          ...
+        </a>
+      )}
       {[
         currentPage - 2,
         currentPage - 1,
@@ -46,14 +61,14 @@ const PaginationNavigation = ({
         if (pageNum >= 1 && pageNum <= totalPages) {
           if (currentPage === pageNum) {
             return (
-              <span className="mx-2 font-bold" key={pageNum}>
+              <span className="mx-1.5 font-bold" key={pageNum}>
                 {pageNum}
               </span>
             );
           } else {
             return (
               <a
-                className="mx-2 text-blue-500 underline hover:text-blue-800"
+                className="mx-1.5 text-blue-500 underline hover:text-blue-800"
                 href="/"
                 key={pageNum}
                 onClick={(e) => {
@@ -68,12 +83,25 @@ const PaginationNavigation = ({
         }
       })}
       {currentPage + NUM_OF_NAV_LINKS_ON_EACH_SIDE < totalPages && (
-        <span>...</span>
+        <a
+          className="mx-1.5 text-blue-500 hover:text-blue-800"
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            if (currentPage + NUM_OF_PAGE_INDICATORS <= totalPages) {
+              navigateToPage(searchValue, currentPage + NUM_OF_PAGE_INDICATORS);
+            } else {
+              navigateToPage(searchValue, totalPages);
+            }
+          }}
+        >
+          ...
+        </a>
       )}
       {currentPage < totalPages && (
         <>
           <a
-            className="mx-2 text-blue-500 hover:text-blue-800"
+            className="mx-1.5 text-blue-500 hover:text-blue-800"
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -83,7 +111,7 @@ const PaginationNavigation = ({
             {">"}
           </a>
           <a
-            className="mx-2 text-blue-500 hover:text-blue-800"
+            className="mx-1.5 text-blue-500 hover:text-blue-800"
             href="/"
             onClick={(e) => {
               e.preventDefault();
