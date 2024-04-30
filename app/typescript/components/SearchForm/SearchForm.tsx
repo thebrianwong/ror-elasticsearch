@@ -5,7 +5,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <form className="flex flex-col gap-y-1.5 max-w-48 mb-4">
+    <form className="flex flex-col gap-y-1.5 max-w-48">
       <label htmlFor="product" className="text-3xl">
         Product:{" "}
       </label>

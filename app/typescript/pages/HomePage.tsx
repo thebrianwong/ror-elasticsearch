@@ -28,8 +28,8 @@ const HomePage = () => {
   };
 
   return (
-    <main className="h-screen bg-gradient-to-r from-sky-200 via-cyan-100 to-sky-200">
-      <div className="container mx-auto text-center flex flex-col items-center">
+    <main className="min-h-screen h-full bg-gradient-to-r from-sky-200 via-cyan-100 to-sky-200">
+      <div className="container mx-auto text-center flex flex-col items-center gap-y-8">
         <h1 className="text-5xl font-extrabold my-4">
           ElasticSearch - Search for Products
         </h1>
