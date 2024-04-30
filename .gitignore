@@ -47,3 +47,5 @@
 /app/javascript/compiled/*
 
 .pnp*
+
+/node_modules
