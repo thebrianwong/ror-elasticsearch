@@ -1,42 +1,42 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<!--<h1>Products#index</h1>-->
+<!--<p>Find me in app/views/products/index.html.erb</p>-->
 
-<%= form_with method: :get do |f| %>
-  <%= f.hidden_field :page, value: 1 %>
-  <%= f.label :product, "Product: " %>
-  <%= f.text_field :product %>
-  <%= f.submit "Search" %>
-<% end %>
+<%#= form_with method: :get do |f| %>
+  <%#= f.hidden_field :page, value: 1 %>
+  <%#= f.label :product, "Product: " %>
+  <%#= f.text_field :product %>
+  <%#= f.submit "Search" %>
+<%# end %>
 
-<% @products && @products.each do |product| %>
-  <div>
-    <h4><%= product.name %></h4>
-    <p>Price: <%= product.price %></p>
-    <p>In Stock: <%= product.in_stock %></p>
-    <p>Sold: <%= product.sold %></p>
-    <p>Description: <%= product.description %></p>
-    <% if product.tags.size > 0 %>
-      <p>Tags: </p>
-      <ul>
-        <% product.tags.each do |tag| %>
-          <li><%= tag %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-<% end %>
-<% if @products && params[:product] && !params[:page].nil? && params[:page].to_i > 1%>
-  <%= link_to "<", url_for(request.params.merge(page: params[:page].to_i - 1)) %>
-<% end %>
+<%# @products && @products.each do |product| %>
+<!--  <div>-->
+<!--    <h4><%#= product.name %></h4>-->
+<!--    <p>Price: <%#= product.price %></p>-->
+<!--    <p>In Stock: <%#= product.in_stock %></p>-->
+<!--    <p>Sold: <%#= product.sold %></p>-->
+<!--    <p>Description: <%#= product.description %></p>-->
+    <%# if product.tags.size > 0 %>
+<!--      <p>Tags: </p>-->
+<!--      <ul>-->
+        <%# product.tags.each do |tag| %>
+<!--          <li><%#= tag %></li>-->
+        <%# end %>
+<!--      </ul>-->
+    <%# end %>
+<!--  </div>-->
+<%# end %>
+<%# if @products && params[:product] && !params[:page].nil? && params[:page].to_i > 1%>
+  <%#= link_to "<", url_for(request.params.merge(page: params[:page].to_i - 1)) %>
+<%# end %>
 
-<% @pages_num && @pages_num.times do |page_num| %>
-  <% if page_num + 1 == params[:page].to_i || params[:page].nil? %>
-    <span><%= page_num + 1 %></span>
-  <% else %>
-    <%= link_to page_num + 1, url_for(request.params.merge(page: page_num + 1)) %>
-  <% end %>
-<% end %>
+<%# @pages_num && @pages_num.times do |page_num| %>
+  <%# if page_num + 1 == params[:page].to_i || params[:page].nil? %>
+<!--    <span><%#= page_num + 1 %></span>-->
+  <%# else %>
+    <%#= link_to page_num + 1, url_for(request.params.merge(page: page_num + 1)) %>
+  <%# end %>
+<%# end %>
 
-<% if @products && params[:product] && !params[:page].nil? && params[:page].to_i < @pages_num%>
-  <%= link_to ">", url_for(request.params.merge(page: params[:page].to_i + 1)) %>
-<% end %>
+<%# if @products && params[:product] && !params[:page].nil? && params[:page].to_i < @pages_num%>
+  <%#= link_to ">", url_for(request.params.merge(page: params[:page].to_i + 1)) %>
+<%# end %>
