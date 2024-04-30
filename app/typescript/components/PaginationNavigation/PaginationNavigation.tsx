@@ -9,16 +9,28 @@ const PaginationNavigation = ({
   return (
     <nav className="flex mb-4">
       {currentPage > 1 && (
-        <a
-          className="mx-2 text-blue-500 hover:text-blue-800"
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigateToPage(searchValue, currentPage - 1);
-          }}
-        >
-          {"<"}
-        </a>
+        <>
+          <a
+            className="mx-2 text-blue-500 hover:text-blue-800"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToPage(searchValue, 1);
+            }}
+          >
+            {"<<"}
+          </a>
+          <a
+            className="mx-2 text-blue-500 hover:text-blue-800"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToPage(searchValue, currentPage - 1);
+            }}
+          >
+            {"<"}
+          </a>
+        </>
       )}
       {Array(totalPages)
         .fill(undefined)
@@ -46,16 +58,28 @@ const PaginationNavigation = ({
           }
         })}
       {currentPage < totalPages && (
-        <a
-          className="mx-2 text-blue-500 hover:text-blue-800"
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigateToPage(searchValue, currentPage + 1);
-          }}
-        >
-          {">"}
-        </a>
+        <>
+          <a
+            className="mx-2 text-blue-500 hover:text-blue-800"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToPage(searchValue, currentPage + 1);
+            }}
+          >
+            {">"}
+          </a>
+          <a
+            className="mx-2 text-blue-500 hover:text-blue-800"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToPage(searchValue, totalPages);
+            }}
+          >
+            {">>"}
+          </a>
+        </>
       )}
     </nav>
   );
