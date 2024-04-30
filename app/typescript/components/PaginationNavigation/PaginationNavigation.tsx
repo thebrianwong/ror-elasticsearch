@@ -8,6 +8,17 @@ const PaginationNavigation = ({
 }: PaginationNavigationProps) => {
   return (
     <div>
+      {currentPage > 1 && (
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigateToPage(searchValue, currentPage - 1);
+          }}
+        >
+          {"<"}
+        </a>
+      )}
       {Array(totalPages)
         .fill(undefined)
         .map((_, index) => {
@@ -28,6 +39,17 @@ const PaginationNavigation = ({
             );
           }
         })}
+      {currentPage < totalPages && (
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigateToPage(searchValue, currentPage + 1);
+          }}
+        >
+          {">"}
+        </a>
+      )}
     </div>
   );
 };
