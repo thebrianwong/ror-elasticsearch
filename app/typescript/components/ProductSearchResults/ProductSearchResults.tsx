@@ -1,3 +1,4 @@
+import Product from "../Product/Product";
 import ProductSearchResultsProps from "./type";
 
 const ProductSearchResults = ({ productsList }: ProductSearchResultsProps) => {
@@ -5,9 +6,7 @@ const ProductSearchResults = ({ productsList }: ProductSearchResultsProps) => {
     <ul>
       {productsList.map((product) => {
         return (
-          <li key={product.name + product.description}>
-            <div>{product.name}</div>
-          </li>
+          <Product key={product.name + product.description} product={product} />
         );
       })}
     </ul>
