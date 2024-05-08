@@ -2,7 +2,7 @@ import ProductProps from "./type";
 
 const Product = ({ product }: ProductProps) => {
   return (
-    <div className="max-w-60">
+    <div className="max-w-60 border-solid border-zinc-400 border-2 rounded-lg p-4 bg-amber-200">
       <h2 className="text-lg font-semibold">{product.name}</h2>
       <p className="font-thin italic">{product.created.toString()}</p>
       <p>{product.in_stock}</p>
