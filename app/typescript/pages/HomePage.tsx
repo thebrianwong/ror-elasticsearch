@@ -56,7 +56,7 @@ const HomePage = () => {
               totalPages={totalPages}
             />
           )}
-        <BackToTopButton ref={pageTopRef} />
+        <BackToTopButton elementRef={pageTopRef} />
       </div>
     </main>
   );
