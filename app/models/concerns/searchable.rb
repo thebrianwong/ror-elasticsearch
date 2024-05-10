@@ -12,11 +12,11 @@ module Searchable
       [search_multi_match]
     end
 
-    def build_is_active_filter(is_active)
-      if is_active == "true" || is_active == "false"
+    def build_boolean_filter(type, value)
+      if value == "true" || value == "false"
         {
           term: {
-            is_active: is_active == "true" ? true : false
+            type => value == "true" ? true : false
           }
         }
       else
@@ -56,7 +56,7 @@ module Searchable
       must_search_array = query_builder.build_search_match(search_params[:search_value])
 
       filter_search_array = []
-      filter_search_array.push query_builder.build_is_active_filter(search_params[:is_active])
+      filter_search_array.push query_builder.build_boolean_filter(:is_active, search_params[:is_active])
       filter_search_array.push query_builder.build_range_filter(:created, search_params[:created_from], search_params[:created_to])
       filter_search_array.push query_builder.build_range_filter(:in_stock, search_params[:in_stock_from], search_params[:in_stock_to])
       filter_search_array.push query_builder.build_range_filter(:price, search_params[:price_from], search_params[:price_to])
