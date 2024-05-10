@@ -32,6 +32,20 @@ module Searchable
         filter_search_array.push filter_is_active
       end
 
+      # filter for created date range
+      filter_created_range = {
+        range: {
+          created: {}
+        }
+      }
+      unless search_params[:created_from].nil?
+        filter_created_range[:range][:created][:gte] = search_params[:created_from]
+      end
+      unless search_params[:created_to].nil?
+        filter_created_range[:range][:created][:lte] = search_params[:created_to]
+      end
+      filter_search_array.push filter_created_range
+
       query_params = {
         query: {
           bool: {
