@@ -3,7 +3,7 @@ import ProductSearchResultsProps from "./type";
 
 const ProductSearchResults = ({ productsList }: ProductSearchResultsProps) => {
   return (
-    <div className="flex flex-wrap justify-evenly gap-y-8">
+    <div className="flex flex-wrap justify-evenly gap-x-4 gap-y-8">
       {productsList.map((product) => {
         return (
           <Product key={product.name + product.description} product={product} />
