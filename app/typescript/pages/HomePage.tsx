@@ -17,7 +17,7 @@ const HomePage = () => {
     const rawResults = await fetch(
       "/api/v1/products/index?" +
         new URLSearchParams({
-          search_param: searchParam,
+          search_value: searchParam,
           page: String(pageNumber),
         })
     );
