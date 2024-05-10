@@ -46,6 +46,20 @@ module Searchable
       end
       filter_search_array.push filter_created_range
 
+      # filter for in_stock
+      filter_in_stock_range = {
+        range: {
+          in_stock: {}
+        }
+      }
+      unless search_params[:in_stock_from].nil?
+        filter_in_stock_range[:range][:in_stock][:gte] = search_params[:in_stock_from]
+      end
+      unless search_params[:in_stock_to].nil?
+        filter_in_stock_range[:range][:in_stock][:lte] = search_params[:in_stock_to]
+      end
+      filter_search_array.push filter_in_stock_range
+
       query_params = {
         query: {
           bool: {
