@@ -24,64 +24,19 @@ module Searchable
       end
     end
 
-    def build_created_range_filter(created_from, created_to)
-      filter_created_range = {
+    def build_range_filter(type, from_value, to_value)
+      filter_range = {
         range: {
-          created: {}
+          type => {}
         }
       }
-      unless created_from.nil?
-        filter_created_range[:range][:created][:gte] = created_from
+      unless from_value.nil?
+        filter_range[:range][type][:gte] = from_value
+        end
+      unless to_value.nil?
+        filter_range[:range][type][:lte] = to_value
       end
-      unless created_to.nil?
-        filter_created_range[:range][:created][:lte] = created_to
-      end
-      filter_created_range
-    end
-
-    def build_in_stock_range_filter(in_stock_from, in_stock_to)
-      filter_in_stock_range = {
-        range: {
-          in_stock: {}
-        }
-      }
-      unless in_stock_from.nil?
-        filter_in_stock_range[:range][:in_stock][:gte] = in_stock_from
-      end
-      unless in_stock_to.nil?
-        filter_in_stock_range[:range][:in_stock][:lte] = in_stock_to
-      end
-      filter_in_stock_range
-    end
-
-    def build_price_range_filter(price_from, price_to)
-      filter_price_range = {
-        range: {
-          price: {}
-        }
-      }
-      unless price_from.nil?
-        filter_price_range[:range][:price][:gte] = price_from
-      end
-      unless price_to.nil?
-        filter_price_range[:range][:price][:lte] = price_to
-      end
-      filter_price_range
-    end
-
-    def build_sold_range_filter(sold_from, sold_to)
-      filter_sold_range = {
-        range: {
-          sold: {}
-        }
-      }
-      unless sold_from.nil?
-        filter_sold_range[:range][:sold][:gte] = sold_from
-      end
-      unless sold_to.nil?
-        filter_sold_range[:range][:sold][:lte] = sold_to
-      end
-      filter_sold_range
+      filter_range
     end
   end
 
@@ -102,10 +57,10 @@ module Searchable
 
       filter_search_array = []
       filter_search_array.push query_builder.build_is_active_filter(search_params[:is_active])
-      filter_search_array.push query_builder.build_created_range_filter(search_params[:created_from], search_params[:created_to])
-      filter_search_array.push query_builder.build_in_stock_range_filter(search_params[:in_stock_from], search_params[:in_stock_to])
-      filter_search_array.push query_builder.build_price_range_filter(search_params[:price_from], search_params[:price_to])
-      filter_search_array.push query_builder.build_sold_range_filter(search_params[:sold_from], search_params[:sold_to])
+      filter_search_array.push query_builder.build_range_filter(:created, search_params[:created_from], search_params[:created_to])
+      filter_search_array.push query_builder.build_range_filter(:in_stock, search_params[:in_stock_from], search_params[:in_stock_to])
+      filter_search_array.push query_builder.build_range_filter(:price, search_params[:price_from], search_params[:price_to])
+      filter_search_array.push query_builder.build_range_filter(:sold, search_params[:sold_from], search_params[:sold_to])
 
       query_params = {
         query: {
