@@ -18,13 +18,25 @@ module Searchable
           fields: ["name^2", :description, "tags^3"]
         }
       }
-
       must_search_array = [search_multi_match]
+
+      filter_search_array = []
+
+      # filter for is_active
+      if search_params[:is_active] == "true" || search_params[:is_active] == "false"
+        filter_is_active = {
+          term: {
+            is_active: search_params[:is_active] == "true" ? true : false
+          }
+        }
+        filter_search_array.push filter_is_active
+      end
 
       query_params = {
         query: {
           bool: {
-            must: must_search_array
+            must: must_search_array,
+            filter: filter_search_array
           }
         }
       }
