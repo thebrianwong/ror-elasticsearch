@@ -46,7 +46,7 @@ module Searchable
       end
       filter_search_array.push filter_created_range
 
-      # filter for in_stock
+      # filter for in_stock range
       filter_in_stock_range = {
         range: {
           in_stock: {}
@@ -59,6 +59,34 @@ module Searchable
         filter_in_stock_range[:range][:in_stock][:lte] = search_params[:in_stock_to]
       end
       filter_search_array.push filter_in_stock_range
+
+      # filter for price range
+      filter_price_range = {
+        range: {
+          price: {}
+        }
+      }
+      unless search_params[:price_from].nil?
+        filter_price_range[:range][:price][:gte] = search_params[:price_from]
+      end
+      unless search_params[:price_to].nil?
+        filter_price_range[:range][:price][:lte] = search_params[:price_to]
+      end
+      filter_search_array.push filter_price_range
+
+      # filter for sold range
+      filter_sold_range = {
+        range: {
+          sold: {}
+        }
+      }
+      unless search_params[:sold_from].nil?
+        filter_sold_range[:range][:sold][:gte] = search_params[:sold_from]
+      end
+      unless search_params[:sold_to].nil?
+        filter_sold_range[:range][:sold][:lte] = search_params[:sold_to]
+      end
+      filter_search_array.push filter_sold_range
 
       query_params = {
         query: {
