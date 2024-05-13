@@ -20,7 +20,7 @@ module Searchable
           }
         }
       else
-        {}
+        nil
       end
     end
 
