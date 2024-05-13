@@ -43,13 +43,24 @@ module Searchable
       if sort_by.nil?
         []
       else
-        [
-          {
-            sort_by => {
-              order: order == "desc" || order == "asc" ? order : "desc"
+        order_value = order == "desc" || order == "asc" ? order : "desc"
+        if sort_by == "name"
+          [
+            {
+              "name.keyword" => {
+                order: order_value
+              }
             }
-          }
-        ]
+          ]
+        else
+          [
+            {
+              sort_by => {
+                order: order == "desc" || order == "asc" ? order : "desc"
+              }
+            }
+          ]
+        end
       end
     end
   end
