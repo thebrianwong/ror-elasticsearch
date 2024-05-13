@@ -38,6 +38,20 @@ module Searchable
       end
       filter_range
     end
+
+    def build_sort(sort_by, order)
+      if sort_by.nil?
+        []
+      else
+        [
+          {
+            sort_by => {
+              order: order == "desc" || order == "asc" ? order : "desc"
+            }
+          }
+        ]
+      end
+    end
   end
 
   included do
@@ -62,7 +76,10 @@ module Searchable
       filter_search_array.push query_builder.build_range_filter(:price, search_params[:price_from], search_params[:price_to])
       filter_search_array.push query_builder.build_range_filter(:sold, search_params[:sold_from], search_params[:sold_to])
 
+      sort_array = query_builder.build_sort(search_params[:sort_by], search_params[:order])
+
       query_params = {
+        sort: sort_array,
         query: {
           bool: {
             must: must_search_array,
