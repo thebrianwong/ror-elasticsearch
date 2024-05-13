@@ -22,7 +22,10 @@ const DateFilterOption = ({
           const fromEpochTime = new Date(e.target.value).getTime();
           const toEpochTime = toDate ? new Date(toDate).getTime() : null;
           setFromDate(e.target.value);
-          updateFilterValue({ from: fromEpochTime, to: toEpochTime });
+          updateFilterValue({
+            from: Number.isNaN(fromEpochTime) ? null : fromEpochTime,
+            to: Number.isNaN(toEpochTime) ? null : toEpochTime,
+          });
         }}
       />
       <label htmlFor={`${metaLabel}-to`}>To: </label>
@@ -32,10 +35,14 @@ const DateFilterOption = ({
         id={`${metaLabel}-to`}
         value={toDate || ""}
         onChange={(e) => {
+          console.log(e.target.value);
           const toEpochTime = new Date(e.target.value).getTime();
           const fromEpochTime = fromDate ? new Date(fromDate).getTime() : null;
           setToDate(e.target.value);
-          updateFilterValue({ from: fromEpochTime, to: toEpochTime });
+          updateFilterValue({
+            from: Number.isNaN(fromEpochTime) ? null : fromEpochTime,
+            to: Number.isNaN(toEpochTime) ? null : toEpochTime,
+          });
         }}
       />
       <a
