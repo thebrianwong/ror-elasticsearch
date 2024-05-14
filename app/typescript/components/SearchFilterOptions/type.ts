@@ -7,7 +7,7 @@ type SearchFilterOptionsProps = {
   updateInStockFilter: (value: RangeFilter) => void;
   updatePriceFilter: (value: RangeFilter) => void;
   updateSoldFilter: (value: RangeFilter) => void;
-  updateSortField: (value: SortOptions | null) => void;
+  updateSortField: (value: SortOptions) => void;
   updateSortOrder: (value: "desc" | "asc" | null) => void;
 };
 

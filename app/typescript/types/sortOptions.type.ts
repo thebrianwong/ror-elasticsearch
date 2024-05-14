@@ -1,4 +1,5 @@
 type SortOptions =
+  | "relevance"
   | "name"
   | "is_active"
   | "created"

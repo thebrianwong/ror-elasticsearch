@@ -23,7 +23,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
     from: null,
     to: null,
   });
-  const [sortBy, setSortBy] = useState<SortOptions | null>(null);
+  const [sortBy, setSortBy] = useState<SortOptions>("relevance");
   const [orderBy, setOrderBy] = useState<"desc" | "asc" | null>(null);
 
   return (
