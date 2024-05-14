@@ -2,6 +2,7 @@ import ActiveFilterOption from "../ActiveFilterOption/ActiveFilterOption";
 import DateFilterOption from "../DateFilterOption/DateFilterOption";
 import NumberFilterOption from "../NumberFilterOption/NumberFilterOption";
 import SortByOption from "../SortByOption/SortByOption";
+import SortOrderOption from "../SortOrderOption/SortOrderOption";
 import SearchFilterOptionsProps from "./type";
 
 const SearchFilterOptions = ({
@@ -37,6 +38,7 @@ const SearchFilterOptions = ({
         updateFilterValue={updateSoldFilter}
       />
       <SortByOption updateSortField={updateSortField} />
+      <SortOrderOption updateSortOrder={updateSortOrder} />
     </div>
   );
 };
