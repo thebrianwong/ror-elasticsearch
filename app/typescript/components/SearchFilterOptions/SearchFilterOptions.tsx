@@ -1,6 +1,7 @@
 import ActiveFilterOption from "../ActiveFilterOption/ActiveFilterOption";
 import DateFilterOption from "../DateFilterOption/DateFilterOption";
 import NumberFilterOption from "../NumberFilterOption/NumberFilterOption";
+import SortByOption from "../SortByOption/SortByOption";
 import SearchFilterOptionsProps from "./type";
 
 const SearchFilterOptions = ({
@@ -35,6 +36,7 @@ const SearchFilterOptions = ({
         metaLabel="sold"
         updateFilterValue={updateSoldFilter}
       />
+      <SortByOption updateSortField={updateSortField} />
     </div>
   );
 };
