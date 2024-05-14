@@ -3,8 +3,10 @@ import SortByOptionProps from "./type";
 
 const SortByOption = ({ updateSortField }: SortByOptionProps) => {
   return (
-    <>
-      <label htmlFor="sort">Sort By</label>
+    <div>
+      <label className="block mb-2" htmlFor="sort">
+        Sort By
+      </label>
       <select
         name="sort"
         id="sort"
@@ -18,7 +20,7 @@ const SortByOption = ({ updateSortField }: SortByOptionProps) => {
         <option value="price">Price</option>
         <option value="sold">Amount Sold</option>
       </select>
-    </>
+    </div>
   );
 };
 

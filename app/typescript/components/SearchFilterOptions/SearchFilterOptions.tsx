@@ -15,7 +15,7 @@ const SearchFilterOptions = ({
   updateSortOrder,
 }: SearchFilterOptionsProps) => {
   return (
-    <div>
+    <div className="flex flex-col gap-y-4 mb-4">
       <ActiveFilterOption updateFilterValue={updateActiveFilter} />
       <DateFilterOption
         label="Created"

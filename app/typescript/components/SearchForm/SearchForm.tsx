@@ -29,12 +29,12 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [orderBy, setOrderBy] = useState<SortOrder>("desc");
 
   return (
-    <form className="flex flex-col gap-y-1.5 max-w-48">
+    <form className="flex flex-col gap-y-1.5 items-center">
       <label htmlFor="product" className="text-3xl">
         Product:{" "}
       </label>
       <input
-        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
+        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded max-w-48"
         type="search"
         name="product"
         id="product"
@@ -43,6 +43,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
           setSearchValue(e.target.value)
         }
       />
+      <p className="text-2xl">Filter By</p>
       <SearchFilterOptions
         updateActiveFilter={setIsActive}
         updateCreatedFilter={setCreatedRange}
