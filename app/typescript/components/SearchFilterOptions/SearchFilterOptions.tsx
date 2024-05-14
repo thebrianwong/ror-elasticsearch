@@ -22,7 +22,7 @@ const SearchFilterOptions = ({
       />
       <NumberFilterOption
         label="In Stock"
-        metaLabel="in-stock"
+        metaLabel="in_stock"
         updateFilterValue={updateInStockFilter}
       />
     </div>
