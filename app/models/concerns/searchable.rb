@@ -62,7 +62,7 @@ module Searchable
           [
             {
               sort_by => {
-                order: order == "desc" || order == "asc" ? order : "desc"
+                order: order_value
               }
             }
           ]
