@@ -54,7 +54,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
         updateSortOrder={setOrderBy}
       />
       <input
-        className="bg-zinc-200 rounded border-zinc-500 border-2 focus:ring"
+        className="bg-zinc-200 rounded border-zinc-500 border-2 py-1 px-2 focus:ring"
         type="submit"
         value="Search"
         onClick={(e) => {
