@@ -25,6 +25,16 @@ const SearchFilterOptions = ({
         metaLabel="in_stock"
         updateFilterValue={updateInStockFilter}
       />
+      <NumberFilterOption
+        label="Price Range"
+        metaLabel="price"
+        updateFilterValue={updatePriceFilter}
+      />
+      <NumberFilterOption
+        label="Amount Sold"
+        metaLabel="sold"
+        updateFilterValue={updateSoldFilter}
+      />
     </div>
   );
 };
