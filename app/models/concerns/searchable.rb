@@ -40,10 +40,16 @@ module Searchable
     end
 
     def build_sort(sort_by, order)
+      order_value = order == "desc" || order == "asc" ? order : "desc"
       if sort_by.nil?
-        []
+        [
+          {
+            "_score" => {
+              order: order_value
+            }
+          }
+        ]
       else
-        order_value = order == "desc" || order == "asc" ? order : "desc"
         if sort_by == "name"
           [
             {
