@@ -5,6 +5,7 @@ const PaginationNavigation = ({
   searchValue,
   currentPage,
   totalPages,
+  searchOptions,
 }: PaginationNavigationProps) => {
   const NUM_OF_PAGE_INDICATORS = 5;
   const NUM_OF_NAV_LINKS_ON_EACH_SIDE = 2;
@@ -18,7 +19,7 @@ const PaginationNavigation = ({
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              navigateToPage(searchValue, 1);
+              navigateToPage(searchValue, 1, searchOptions);
             }}
           >
             {"<<"}
@@ -28,7 +29,7 @@ const PaginationNavigation = ({
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              navigateToPage(searchValue, currentPage - 1);
+              navigateToPage(searchValue, currentPage - 1, searchOptions);
             }}
           >
             {"<"}
@@ -42,9 +43,13 @@ const PaginationNavigation = ({
           onClick={(e) => {
             e.preventDefault();
             if (currentPage - NUM_OF_PAGE_INDICATORS >= 1) {
-              navigateToPage(searchValue, currentPage - NUM_OF_PAGE_INDICATORS);
+              navigateToPage(
+                searchValue,
+                currentPage - NUM_OF_PAGE_INDICATORS,
+                searchOptions
+              );
             } else {
-              navigateToPage(searchValue, 1);
+              navigateToPage(searchValue, 1, searchOptions);
             }
           }}
         >
@@ -73,7 +78,7 @@ const PaginationNavigation = ({
                 key={pageNum}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigateToPage(searchValue, pageNum);
+                  navigateToPage(searchValue, pageNum, searchOptions);
                 }}
               >
                 {pageNum}
@@ -89,9 +94,13 @@ const PaginationNavigation = ({
           onClick={(e) => {
             e.preventDefault();
             if (currentPage + NUM_OF_PAGE_INDICATORS <= totalPages) {
-              navigateToPage(searchValue, currentPage + NUM_OF_PAGE_INDICATORS);
+              navigateToPage(
+                searchValue,
+                currentPage + NUM_OF_PAGE_INDICATORS,
+                searchOptions
+              );
             } else {
-              navigateToPage(searchValue, totalPages);
+              navigateToPage(searchValue, totalPages, searchOptions);
             }
           }}
         >
@@ -105,7 +114,7 @@ const PaginationNavigation = ({
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              navigateToPage(searchValue, currentPage + 1);
+              navigateToPage(searchValue, currentPage + 1, searchOptions);
             }}
           >
             {">"}
@@ -115,7 +124,7 @@ const PaginationNavigation = ({
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              navigateToPage(searchValue, totalPages);
+              navigateToPage(searchValue, totalPages, searchOptions);
             }}
           >
             {">>"}

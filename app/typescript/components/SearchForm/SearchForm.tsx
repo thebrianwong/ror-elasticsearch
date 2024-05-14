@@ -4,6 +4,7 @@ import RangeFilter from "../../types/rangeFilter.type";
 import SortOptions from "../../types/sortOptions.type";
 import SearchFilterOptions from "../SearchFilterOptions/SearchFilterOptions";
 import SortOrder from "../../types/sortOrder.type";
+import SearchOptions from "../../types/searchOptions.type";
 
 const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [searchValue, setSearchValue] = useState("");
@@ -57,7 +58,16 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
         value="Search"
         onClick={(e) => {
           e.preventDefault();
-          performSearch(searchValue, 1);
+          const searchOptions: SearchOptions = {
+            is_active: isActive,
+            created: createdRange,
+            in_stock: inStockRange,
+            price: priceRange,
+            sold: soldRange,
+            sort_by: sortBy,
+            order: orderBy,
+          };
+          performSearch(searchValue, 1, searchOptions);
         }}
       />
     </form>
