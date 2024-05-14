@@ -9,6 +9,7 @@ const SortByOption = ({ updateSortField }: SortByOptionProps) => {
       </label>
       <select
         name="sort"
+        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
         id="sort"
         onChange={(e) => updateSortField(e.target.value as SortOptions)}
       >

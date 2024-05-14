@@ -12,12 +12,13 @@ const DateFilterOption = ({
   return (
     <div className="flex flex-col items-center">
       <p className="mb-2">{label}</p>
-      <div className="flex gap-x-2">
+      <div className="flex items-center gap-x-2">
         <div>
           <label htmlFor={`${metaLabel}-from`}>From: </label>
           <input
             type="date"
             name={`${metaLabel}_from`}
+            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
             id={`${metaLabel}-from`}
             value={fromDate || ""}
             onChange={(e) => {
@@ -36,6 +37,7 @@ const DateFilterOption = ({
           <input
             type="date"
             name={`${metaLabel}_to`}
+            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
             id={`${metaLabel}-to`}
             value={toDate || ""}
             onChange={(e) => {
