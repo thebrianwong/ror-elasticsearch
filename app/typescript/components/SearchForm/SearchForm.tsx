@@ -34,10 +34,11 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
         Product:{" "}
       </label>
       <input
-        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded max-w-48"
+        className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded max-w-48 placeholder:text-slate-500"
         type="search"
         name="product"
         id="product"
+        placeholder="Bread"
         value={searchValue}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setSearchValue(e.target.value)

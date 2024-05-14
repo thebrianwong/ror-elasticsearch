@@ -18,8 +18,9 @@ const NumberFilterOption = ({
           <input
             type="number"
             name={`${metaLabel}_from`}
-            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
+            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded placeholder:text-slate-500"
             id={`${metaLabel}_from`}
+            placeholder="0"
             value={fromValue || ""}
             onChange={(e) => {
               e.target.value === ""
@@ -37,8 +38,9 @@ const NumberFilterOption = ({
           <input
             type="number"
             name={`${metaLabel}_to`}
-            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded"
+            className="bg-neutral-200 border-black border-2 focus:ring outline-none p-1 rounded placeholder:text-slate-500"
             id={`${metaLabel}_to`}
+            placeholder="100"
             value={toValue || ""}
             onChange={(e) => {
               e.target.value === ""
