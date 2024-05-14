@@ -2,8 +2,7 @@ import { useState } from "react";
 import ActiveFilterOptionProps from "./type";
 
 const ActiveFilterOption = ({ updateFilterValue }: ActiveFilterOptionProps) => {
-  const [trueChecked, setTrueChecked] = useState(false);
-  const [falseChecked, setFalseChecked] = useState(false);
+  const [isActive, setIsActive] = useState<boolean | null>(null);
 
   return (
     <>
@@ -14,10 +13,9 @@ const ActiveFilterOption = ({ updateFilterValue }: ActiveFilterOptionProps) => {
         name="is_active"
         id="active-true"
         value="true"
-        checked={trueChecked}
+        checked={isActive ? true : false}
         onChange={(e) => {
-          setTrueChecked(true);
-          setFalseChecked(false);
+          setIsActive(true);
           updateFilterValue(true);
         }}
       />
@@ -27,10 +25,9 @@ const ActiveFilterOption = ({ updateFilterValue }: ActiveFilterOptionProps) => {
         name="is_active"
         id="active-false"
         value="false"
-        checked={falseChecked}
+        checked={isActive === false ? true : false}
         onChange={(e) => {
-          setFalseChecked(true);
-          setTrueChecked(false);
+          setIsActive(false);
           updateFilterValue(false);
         }}
       />
@@ -39,8 +36,7 @@ const ActiveFilterOption = ({ updateFilterValue }: ActiveFilterOptionProps) => {
         href="/"
         onClick={(e) => {
           e.preventDefault();
-          setTrueChecked(false);
-          setFalseChecked(false);
+          setIsActive(null);
           updateFilterValue(null);
         }}
       >
