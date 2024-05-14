@@ -3,6 +3,7 @@ import SearchFormProps from "./type";
 import RangeFilter from "../../types/rangeFilter.type";
 import SortOptions from "../../types/sortOptions.type";
 import SearchFilterOptions from "../SearchFilterOptions/SearchFilterOptions";
+import SortOrder from "../../types/sortOrder.type";
 
 const SearchForm = ({ performSearch }: SearchFormProps) => {
   const [searchValue, setSearchValue] = useState("");
@@ -24,7 +25,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
     to: null,
   });
   const [sortBy, setSortBy] = useState<SortOptions>("relevance");
-  const [orderBy, setOrderBy] = useState<"desc" | "asc" | null>(null);
+  const [orderBy, setOrderBy] = useState<SortOrder>("desc");
 
   return (
     <form className="flex flex-col gap-y-1.5 max-w-48">
