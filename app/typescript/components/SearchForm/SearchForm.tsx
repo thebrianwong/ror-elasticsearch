@@ -27,6 +27,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
   });
   const [sortBy, setSortBy] = useState<SortOptions>("relevance");
   const [orderBy, setOrderBy] = useState<SortOrder>("desc");
+  const [openFilterDrawer, setOpenFilterDrawer] = useState(true);
 
   return (
     <form className="flex flex-col gap-y-1.5 items-center">
@@ -44,16 +45,29 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
           setSearchValue(e.target.value)
         }
       />
-      <p className="text-2xl">Filter By</p>
-      <SearchFilterOptions
-        updateActiveFilter={setIsActive}
-        updateCreatedFilter={setCreatedRange}
-        updateInStockFilter={setInStockRange}
-        updatePriceFilter={setPriceRange}
-        updateSoldFilter={setSoldRange}
-        updateSortField={setSortBy}
-        updateSortOrder={setOrderBy}
-      />
+      <div className="flex justify-center items-center gap-x-2">
+        <p className="text-2xl">Filter By</p>
+        <button
+          className="self-center bg-zinc-100 hover:bg-zinc-300 h-6 w-6 rounded-3xl"
+          onClick={(e) => {
+            e.preventDefault();
+            setOpenFilterDrawer(!openFilterDrawer);
+          }}
+        >
+          v
+        </button>
+      </div>
+      {openFilterDrawer && (
+        <SearchFilterOptions
+          updateActiveFilter={setIsActive}
+          updateCreatedFilter={setCreatedRange}
+          updateInStockFilter={setInStockRange}
+          updatePriceFilter={setPriceRange}
+          updateSoldFilter={setSoldRange}
+          updateSortField={setSortBy}
+          updateSortOrder={setOrderBy}
+        />
+      )}
       <input
         className="bg-zinc-200 rounded border-zinc-500 border-2 py-1 px-2 focus:ring"
         type="submit"
