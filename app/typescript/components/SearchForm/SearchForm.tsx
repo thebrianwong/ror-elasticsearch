@@ -48,6 +48,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
       <div className="flex justify-center items-center gap-x-2">
         <p className="text-2xl">Filter By</p>
         <button
+					type="button"
           className="self-center bg-zinc-100 hover:bg-zinc-300 h-6 w-6 rounded-3xl"
           onClick={(e) => {
             e.preventDefault();
