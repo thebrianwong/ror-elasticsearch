@@ -27,7 +27,7 @@ const SearchForm = ({ performSearch }: SearchFormProps) => {
   });
   const [sortBy, setSortBy] = useState<SortOptions>("relevance");
   const [orderBy, setOrderBy] = useState<SortOrder>("desc");
-  const [openFilterDrawer, setOpenFilterDrawer] = useState(true);
+  const [openFilterDrawer, setOpenFilterDrawer] = useState(false);
 
   return (
     <form className="flex flex-col gap-y-1.5 items-center">
