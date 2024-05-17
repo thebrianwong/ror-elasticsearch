@@ -73,3 +73,6 @@ end
 
 gem "jsbundling-rails", "~> 1.3"
 gem "cssbundling-rails"
+
+gem "graphql"
+gem "graphiql-rails", group: :development

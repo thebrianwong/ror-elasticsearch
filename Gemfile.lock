@@ -123,6 +123,10 @@ GEM
       net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.10.0)
+      railties
+    graphql (2.3.3)
+      base64
     hashie (5.0.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
@@ -301,6 +305,8 @@ DEPENDENCIES
   dotenv
   elasticsearch-model
   elasticsearch-rails
+  graphiql-rails
+  graphql
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.3)
