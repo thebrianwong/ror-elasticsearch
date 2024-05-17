@@ -29,5 +29,7 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :product, resolver: Resolvers::ProductResolver
   end
 end
