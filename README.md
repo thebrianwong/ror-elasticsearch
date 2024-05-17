@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+1. Copy `.env` and the Elasticsearch HTTPS certificate to the root directory.
+2. Run `yarn install`.
+3. `cd` into `app/typescript` and run `npm install`.
+4. Run `tsc`.
+5. `cd` back to the root directory and run `bin/dev`.
