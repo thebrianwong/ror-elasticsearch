@@ -9,6 +9,6 @@ module Types
     field :tags, [String], null: false
     field :description, String, null: false
     field :is_active, Boolean, null: false
-    field :created, GraphQL::Types::ISO8601DateTime, null: false
+    field :created, GraphQL::Types::ISO8601Date, null: false
   end
 end
