@@ -19,6 +19,12 @@ module Searchable
             type => value == "true" ? true : false
           }
         }
+      elsif value == true || value == false
+        {
+          term: {
+            type => value
+          }
+        }
       else
         nil
       end
