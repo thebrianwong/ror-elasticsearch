@@ -2,9 +2,10 @@ module Resolvers
   class ProductResolver < BaseResolver
     type Types::ProductType, null: false
     argument :name, String, required: true
+    argument :page, Integer, required: true
 
-    def resolve(name: "bread")
-      query = Product.search({search_value: name}).page(1)
+    def resolve(name: "bread", page: 1)
+      query = Product.search({search_value: name}).page(page)
       response = query.response["hits"]["hits"]
       products = response.map { |doc| {node: doc._source}}
       num_of_pages = query.records.total_pages
