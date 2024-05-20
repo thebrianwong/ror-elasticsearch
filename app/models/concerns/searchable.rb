@@ -37,10 +37,10 @@ module Searchable
         }
       }
       unless from_value.nil?
-        filter_range[:range][type][:gte] = from_value.to_s.gsub(/-/, "/")
+        filter_range[:range][type][:gte] = from_value
         end
       unless to_value.nil?
-        filter_range[:range][type][:lte] = to_value.to_s.gsub(/-/, "/")
+        filter_range[:range][type][:lte] = to_value
       end
       filter_range
     end
