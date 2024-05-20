@@ -4,7 +4,7 @@ module Resolvers
     argument :name, String, required: true
     argument :page, Integer, required: true
 
-    def resolve(name: "bread", page: 1)
+    def resolve(name: , page: )
       query = Product.search({search_value: name}).page(page)
       response = query.response["hits"]["hits"]
       products = response.map { |doc| {node: doc._source}}
