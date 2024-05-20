@@ -8,5 +8,7 @@ module Types
     argument :created_to, GraphQL::Types::ISO8601Date, required: false, default_value: nil
     argument :in_stock_from, Integer, required: false, default_value: nil
     argument :in_stock_to, Integer, required: false, default_value: nil
+    argument :price_from, Integer, required: false, default_value: nil
+    argument :price_to, Integer, required: false, default_value: nil
   end
 end
