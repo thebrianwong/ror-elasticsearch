@@ -37,10 +37,10 @@ module Searchable
         }
       }
       unless from_value.nil?
-        filter_range[:range][type][:gte] = from_value
+        filter_range[:range][type][:gte] = from_value.to_s.gsub(/-/, "/")
         end
       unless to_value.nil?
-        filter_range[:range][type][:lte] = to_value
+        filter_range[:range][type][:lte] = to_value.to_s.gsub(/-/, "/")
       end
       filter_range
     end
@@ -89,7 +89,7 @@ module Searchable
     def self.search(search_params)
       # build and run search
       query_builder = QueryBuilder.new
-
+      p search_params
       must_search_array = query_builder.build_search_match(search_params[:search_value])
 
       filter_search_array = []
