@@ -6,5 +6,7 @@ module Types
     argument :is_active, Boolean, required: false, default_value: nil
     argument :created_from, GraphQL::Types::ISO8601Date, required: false, default_value: nil
     argument :created_to, GraphQL::Types::ISO8601Date, required: false, default_value: nil
+    argument :in_stock_from, Integer, required: false, default_value: nil
+    argument :in_stock_to, Integer, required: false, default_value: nil
   end
 end
