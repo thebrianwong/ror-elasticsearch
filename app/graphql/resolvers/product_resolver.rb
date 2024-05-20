@@ -4,7 +4,7 @@ module Resolvers
     argument :input, Types::ProductQueryInput, required: true
 
     def resolve(input:)
-      query = Product.search({search_value: input.name}).page(input.page)
+      query = Product.search(input).page(input.page)
       response = query.response["hits"]["hits"]
       products = response.map { |doc| {node: doc._source}}
       num_of_pages = query.records.total_pages
