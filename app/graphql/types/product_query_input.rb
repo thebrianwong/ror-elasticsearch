@@ -12,5 +12,6 @@ module Types
     argument :price_to, Integer, required: false, default_value: nil
     argument :sold_from, Integer, required: false, default_value: nil
     argument :sold_to, Integer, required: false, default_value: nil
+    argument :sort_by, SortByEnum, required: false, default_value: nil
   end
 end
