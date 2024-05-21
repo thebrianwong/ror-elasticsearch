@@ -89,7 +89,7 @@ module Searchable
     def self.search(search_params)
       # build and run search
       query_builder = QueryBuilder.new
-      p search_params
+
       must_search_array = query_builder.build_search_match(search_params[:search_value])
 
       filter_search_array = []
