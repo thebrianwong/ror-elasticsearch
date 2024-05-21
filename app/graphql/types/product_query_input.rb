@@ -13,5 +13,6 @@ module Types
     argument :sold_from, Integer, required: false, default_value: nil
     argument :sold_to, Integer, required: false, default_value: nil
     argument :sort_by, SortByEnum, required: false, default_value: nil
+    argument :order, SortOrderEnum, required: false, default_value: "desc"
   end
 end
